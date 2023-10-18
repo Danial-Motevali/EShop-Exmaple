@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Shop\Contacts\" />
-    <Folder Include="Shop\Dtos\" />
   </ItemGroup>
 
 </Project>
