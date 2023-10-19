@@ -8,6 +8,7 @@ namespace App.Domain.Core.Shop.Dtos
 {
     public class CategoryInputDto
     {
+        public int Id { get; set; }
         public string? Title { get; set; } = null;
 
         public int? ParentId { get; set; }
