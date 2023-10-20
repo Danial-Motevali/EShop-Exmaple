@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Services
+namespace App.Domain.Services.Shop
 {
     public class CategoryService : ICategoryService
     {
@@ -20,8 +20,8 @@ namespace App.Domain.Services
         public async Task<int> Add(CategoryInputDto categoryInput, CancellationToken cancellationToken)
         {
             var category = await _categoryRepository.GetById(categoryInput.Id, cancellationToken);
-            if (category != null) 
-            { 
+            if (category != null)
+            {
                 await _categoryRepository.Add(categoryInput, cancellationToken);
             }
 

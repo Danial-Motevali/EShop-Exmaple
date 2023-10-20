@@ -9,11 +9,11 @@ namespace App.Domain.Core.Shop.Contacts.AppService
 {
     public interface IProductAppService
     {
-        Task<int> Add(ProductInputDto productInput, CancellationToken cancellationToken);
+        Task<GeneralOutputDto> Add(ProductInputDto productInput, CancellationToken cancellationToken);
 
-        Task<int> Update(int id, ProductInputDto productInput, CancellationToken cancellationToken);
+        Task<GeneralOutputDto> Update(int id, ProductInputDto productInput, CancellationToken cancellationToken);
 
-        Task<bool> Delete(int id, CancellationToken cancellationToken);
+        Task<GeneralOutputDto> Delete(int id, CancellationToken cancellationToken);
 
         Task<ProductOutputDto> GetById(int id, CancellationToken cancellationToken);
 

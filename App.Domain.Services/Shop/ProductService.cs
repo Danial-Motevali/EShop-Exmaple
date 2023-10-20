@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Services
+namespace App.Domain.Services.Shop
 {
     public class ProductService : IProductService
     {
@@ -20,7 +20,7 @@ namespace App.Domain.Services
         public async Task<int> Add(ProductInputDto productInput, CancellationToken cancellationToken)
         {
             var product = await _repository.GetById(productInput.Id, cancellationToken);
-            if (product != null) 
+            if (product != null)
             {
                 await _repository.Add(productInput, cancellationToken);
             }
@@ -31,7 +31,7 @@ namespace App.Domain.Services
         public async Task<bool> Delete(int id, CancellationToken cancellationToken)
         {
             var product = await _repository.GetById(id, cancellationToken);
-            if(product != null)
+            if (product != null)
             {
                 await _repository.Delete(id, cancellationToken);
 
