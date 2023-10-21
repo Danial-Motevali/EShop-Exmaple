@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Domain.Services.Shop
+namespace App.Domain.Service.Shop
 {
     public class CategoryService : ICategoryService
     {
@@ -19,10 +19,10 @@ namespace App.Domain.Services.Shop
 
         public async Task<int> Add(CategoryInputDto categoryInput, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetById(categoryInput.Id, cancellationToken);
-            if (category != null)
+            var product = await _categoryRepository.GetById(categoryInput.Id, cancellationToken);
+            if (product != null)
             {
-                await _categoryRepository.Add(categoryInput, cancellationToken);
+                return await _categoryRepository.Add(categoryInput, cancellationToken);
             }
 
             return 0;
@@ -30,12 +30,10 @@ namespace App.Domain.Services.Shop
 
         public async Task<bool> Delete(int id, CancellationToken cancellationToken)
         {
-            var category = await _categoryRepository.GetById(id, cancellationToken);
-            if (category != null)
+            var product = await _categoryRepository.GetById(id, cancellationToken);
+            if (product != null)
             {
-                await _categoryRepository.Delete(id, cancellationToken);
-
-                return true;
+                return await _categoryRepository.Delete(id, cancellationToken);
             }
 
             return false;
@@ -53,10 +51,10 @@ namespace App.Domain.Services.Shop
 
         public async Task<int> Update(int id, CategoryInputDto categoryInput, CancellationToken cancellationToken)
         {
-            var category = _categoryRepository.GetById(id, cancellationToken);
-            if (category != null)
+            var product = await _categoryRepository.GetById(id, cancellationToken);
+            if (product != null)
             {
-                await _categoryRepository.Update(id, categoryInput, cancellationToken);
+                return await _categoryRepository.Add(categoryInput, cancellationToken);
             }
 
             return 0;

@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="User\Dtos\" />
-    <Folder Include="User\Contracts\" />
-    <Folder Include="User\Entites\" />
+    <Compile Remove="User\**" />
+    <EmbeddedResource Remove="User\**" />
+    <None Remove="User\**" />
   </ItemGroup>
 
   <ItemGroup>
